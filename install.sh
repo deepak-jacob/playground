@@ -7,3 +7,4 @@ sudo apt install atom
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 sudo apt-get install xclip
 nvm install stable
+sudo apt install gimp
