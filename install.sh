@@ -9,3 +9,6 @@ sudo apt-get install xclip
 nvm install stable
 sudo apt install gimp
 sudo apt install mongodb
+wget https://download.teamviewer.com/download/teamviewer_i386.deb
+sudo dpkg -i teamviewer_i386.deb
+sudo apt-get -f install
