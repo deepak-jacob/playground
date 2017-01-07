@@ -5,7 +5,7 @@ sudo add-apt-repository ppa:webupd8team/atom
 sudo apt update
 sudo apt install atom
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-sudo apt-get install xclip
+sudo apt install xclip
 nvm install stable
 sudo apt install gimp
 sudo apt install mongodb
