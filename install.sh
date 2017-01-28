@@ -21,3 +21,5 @@ sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
 sudo apt update
 sudo apt install sublime-text-installer
 sudo apt install emacs
+sudo apt install filezilla
+#configure filezilla
