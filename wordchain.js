@@ -3,12 +3,12 @@ const fs = require('fs');
 
 //test inputs
 const inputs = [
-  {start: 'ape', end: 'man'},
-  {start: 'cat', end: 'dog'},
-  {start: 'lead', end: 'gold'},
-  {start: 'take', end: 'fort'},
-  {start: 'poor', end: 'rich'},
-  {start: 'might', end: 'teeth'},
+  //{start: 'ape', end: 'man'},
+  //{start: 'cat', end: 'dog'},
+  //{start: 'lead', end: 'gold'},
+  //{start: 'take', end: 'fort'},
+  //{start: 'poor', end: 'rich'},
+  //{start: 'might', end: 'teeth'},
   {start: 'flower', end: 'gloden'},
 ];
 
@@ -39,7 +39,7 @@ function compute(start, end, words) {
   while(itrateArray.length) {
 
     const curNode = itrateArray.shift();
-    const nextlevelwords = findSubnodes(curNode.data, words);
+    const nextlevelwords = findSubnodesAlt(curNode.data, words);
 
     loop2:
     for(let ele of nextlevelwords) {
@@ -57,6 +57,28 @@ function compute(start, end, words) {
 
 }
 
+let lookupalt = {}; //local cache
+function findSubnodesAlt(par, words) {
+  if(lookupalt[par]) {
+    return lookupalt[par];
+  }
+  let retArray = [];
+  let charArray = par.split('');
+  for (let ch = 97; ch <= 122; ch++) {
+    for(let i = 0; i < charArray.length; i++) {
+      const cha = String.fromCharCode(ch);
+      if (charArray[i] == cha) continue;
+      const old_ch = charArray[i];
+      charArray[i] = cha;
+      if( words.indexOf(charArray.join('')) > -1 ) {
+        retArray.push(charArray.join(''));
+      }
+      charArray[i] = old_ch;
+    }
+  };
+  lookupalt[par] = retArray;
+  return lookupalt[par];
+}
 
 let lookup = {}; //local cache
 function findSubnodes(par, words) {
